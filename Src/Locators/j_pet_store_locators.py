@@ -1,3 +1,3 @@
 class Locator:
-    heading = "Content"
+    heading = "h2"
     enter_store = '//*[@id="Content"]/p[1]/a'

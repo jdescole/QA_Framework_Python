@@ -1,13 +1,10 @@
-import time
-
 import urllib3
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.chrome.options import Options
 
 
 class Browser:
-    def __init__(self, url, _headless=False):
+    def __init__(self, url, _headless=True):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         options = webdriver.ChromeOptions()
         options.headless = _headless
