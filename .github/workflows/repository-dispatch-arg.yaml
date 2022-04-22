@@ -1,0 +1,42 @@
+name: QA-Framework Parametrized Regressions
+on:
+  repository_dispatch:
+    types: [parametrized-arg-regression-event]
+  workflow_dispatch:
+
+jobs:
+  parametrized-regression-event:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.7' # Version range or exact version of a Python version to use, using semvers version range syntax.
+          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
+
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.branch }}
+
+      - name: Checkout Source Code of Scripts
+        uses: actions/checkout@v2
+        with:
+          repository: QA_Framework_Python
+          token: ${{ secrets.QA_FRAMEWORK_GLOBAL_GITHUB_TOKEN }}
+          path: qa_framework
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ${{ hashFiles('requirements.txt') }}
+      - name: Installing Python requirements
+        run: |
+          pip3 install -e ./commons_qa
+          pip3 install $(grep -ivE "commons_qa" requirements.txt)
+
+      - name: Tests
+        run: |
+          echo $ARGS
+          pytest -n 8 --dist=loadscope --durations=10 --profile=$PROFILE $ARGS --role=ci
+        env:
+            PROFILE: ${{github.event.client_payload.profile}}
+            ARGS: ${{github.event.client_payload.args}}

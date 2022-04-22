@@ -7,7 +7,7 @@ class TestJpetStore:
     @pytest.fixture(scope="class")
     def home_page(self):
         _url = "https://petstore.octoperf.com/"
-        self.home_page = HomePage(_url, headless=True)
+        self.home_page = HomePage(_url, headless=False)
         yield self.home_page
         self.home_page.driver.quit()
 
