@@ -1,4 +1,6 @@
 selenium
 pytest
-webdriver-
+webdriver_manager
 xdist
+sphinx
+allure-pytest
