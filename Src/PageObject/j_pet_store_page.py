@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from Src.WebdriverSetup.webdriver_tools import Browser
+from qa_commons.WebdriverSetup import Browser
 from Src.Locators.j_pet_store_locators import Locator
 
 

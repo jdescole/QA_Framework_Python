@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/QA_Framework_Python.iml" filepath="$PROJECT_DIR$/.idea/QA_Framework_Python.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../qa_commons/.idea/qa_commons.iml" filepath="$PROJECT_DIR$/../qa_commons/.idea/qa_commons.iml" />
     </modules>
   </component>
 </project>
