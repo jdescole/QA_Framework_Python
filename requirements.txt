@@ -4,4 +4,4 @@ webdriver_manager
 xdist
 sphinx
 allure-pytest
-commons_qa @git+ssh://git@github.com/jdescolegl/qa_commons.git
+qa_commons @git+ssh://git@github.com/jdescolegl/qa_commons.git@v1.0.0#egg=qa_commons
